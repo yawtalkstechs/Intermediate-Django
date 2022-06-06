@@ -1,0 +1,10 @@
+version: "3.10"
+
+services:
+  web:
+    build: .
+    command: python /first_example/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/first_example
+    ports:
+      - 8000:8000
