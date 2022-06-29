@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    .btn {
+        @apply rounded-xl px-4 py-2 my-2 mx-2 shadow-md text-black;
+    }
+
+    .btn-blue {
+        @apply py-2 px-4 bg-blue-500 text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    }
+    .btn-green{
+        @apply py-3 px-7 bg-green-500 text-black font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75;
+    }
+}
+
+@layer base {
+    .h1 {
+        @apply text-3xl text-center mx-auto my-auto text-sky-700;
+    }
+
+    .h2 {
+        @apply text-2xl text-center mx-auto my-auto text-green-700;
+    }
+}

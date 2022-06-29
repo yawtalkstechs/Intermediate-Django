@@ -1,13 +1,22 @@
 {% extends '_base.html' %}
+{% load crispy_forms_tags %}
+{% load tailwind_tags %}
+
+{% load tailwind_filters %}
+
 
 {% block title %}Log In{% endblock title %}
 
 {% block content %}
-    <h2>Log In</h2>
+    {% tailwind_css %}
+    <h2 class="h2">Log In</h2>
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Log In</button>
+        <div class="container mx-auto my-3">
+
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-green">Log In</button>
+        </div>
     </form>
 
 {% endblock content %}
