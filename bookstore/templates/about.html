@@ -1,7 +1,13 @@
 {% extends '_base.html' %}
+{% load static %}
+
+{% load tailwind_tags %}
+{% load tailwind_filters %}
 
 {% block title %}About{% endblock title %}
 
 {% block content %}
+    {% tailwind_preload_css %}
+    {% tailwind_css %}
     <h1>About Page </h1>
 {% endblock content %}

@@ -1,16 +1,18 @@
 {% extends '_base.html' %}
+{% load static %}
+
 {% load crispy_forms_tags %}
 {% load tailwind_tags %}
-
 {% load tailwind_filters %}
 
 
 {% block title %}Log In{% endblock title %}
 
 {% block content %}
+    {% tailwind_preload_css %}
     {% tailwind_css %}
     <h2 class="h2">Log In</h2>
-    <form method="post">
+    <form method="post" class="form-control">
         <div class="container mx-auto my-3">
 
             {% csrf_token %}

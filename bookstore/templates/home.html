@@ -4,13 +4,13 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <h1 class="h1">Homepage</h1>
-    <div class="container mx-auto">
+    <h1 class="h1 my-2">Homepage</h1>
+    <div class="container mx-auto my-3 ">
         <img class="bookcover" src="{% static 'images/bookcover.jpg' %}"/>
     </div>
-    <div class="md:container md:mx-auto text-2xl">
+    <div class="md:container md:mx-auto text-2xl text-zinc-300">
     {% if user.is_authenticated %}
-        Hi {{ user.email }}
+        Hi {{ user.username }}
         <div class="container mx-auto text-red-400 hover:text-red-700">
             <p>
                 <a href="{% url 'logout' %}">Log Out</a>

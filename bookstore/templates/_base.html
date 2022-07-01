@@ -1,54 +1,89 @@
 {% load tailwind_tags %}
 
-{% load tailwind_filters %}
 
 <!DOCTYPE html>
-<html class="bg-gray-300">
+<html lang="en" class="bg-slate">
   {% tailwind_css %}
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title %}BookStore{% endblock title %}</title>
-    </head>
-    <body>
-        <header>
-    <div class="container mx-auto style my-auto bg-gray">
-    <nav class="bg-blue-900 border-gray-200 px-2 sm:px-4 py-2.5 my-1 rounded dark:bg-gray-800">
-        <div class="container flex flex-wrap justify-between items-center mx-auto">
-          
-          <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-            <ul class="flex flex-wrap flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 
-                        md:text-sm md:font-medium">
-              <li>
-                <a href="{% url 'home' %}" class="block py-2 pr-4 pl-3 text-xl text-lime-500 
-                        rounded md:bg-transparent md:text-lime-500 hover:text-lime-300 md:p-0 dark:text-white" 
-                        aria-current="page">Bookstore</a>
-              </li>
-              <li>
-                <a href="{% url 'about' %}" class="text-sky-400 text-xl hover:text-sky-200 focus:ring">About</a>
-              </li>
-              <li>
-                {% if user.is_authenticated %}
-                    <a class="block md text-red-500 text-xl hover:text-red-300 focus:ring" href="{% url 'logout' %}">Log Out</a>
-                {% else %}
-                    <li><a class="block md text-xl text-blue-500 hover:text-blue-300" href="{% url 'login' %}">Log In</a> </li>
-                    <a class="text-green-500 text-xl hover:text-green-300 active:text-green-700" 
-                    href="{% url 'signup' %}">
-                        Sign up
-                    </a>
-                {% endif %}
-                      
-              </li>
-              <li>
-            </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Bookstore</title>
+</head>
+<body>
+  <header>
+    <nav class="relative px-5 flex justify-between items-center h-14 bg-green-700 drop-shadow-md">
+      <!-- Logo -->
+      <div>
+          <a href="{% url 'home' %}" class="text-white text-2xl font-semibold italic">
+              Online <span class="text-amber-500"> Bookstore</span>
+          </a>
+      </div>
+
+      <!-- This div and its children show up when screen's width >= 769px (md breakpoint) -->
+      <div id="main-nav"
+          class="hidden absolute top-14 right-0 px-5 py-10 bg-gray-700 h-screen flex-col 
+          md:flex md:space-y-0 md:relative md:top-0 md:right-0 md:p-0 md:flex-row md:h-full md:flex-grow md:justify-between md:items-center md:ml-10 md:bg-inherit">
+          <!-- Menu Links -->
+          <div
+              class="order-last flex flex-col items-end text-slate-900 space-y-3  md:flex-row md:items-start md:order-first md:space-y-0 md:space-x-5">
+              <a class="text-sky-500 text-3xl" href="{% url 'home' %}">Home</a>
+              <a class="hover:text-zinc-300 text-xl active:text-white " href="{% url 'about' %}">About</a>
+              <a class="hover:text-zinc-300 active:text-white text-xl" href="{% url 'login' %}">Login</a>
+              <a class="hover:text-zinc-300 active:text-white text-xl" href="{% url 'signup' %}">Sign up</a>
+              
           </div>
-        </div>
-      </nav>
-  
-      </header>
-        <div class="md:container md:mx-auto">
-            {% block content %}
-            {% endblock content %}
-        </div>
-  </body>
-</div>
+
+          <!-- Search box -->
+          <form class="order-first mb-10 md:mb-0 md:order-last md:pr-8" action="">
+              <input class="w-72 py-1 pl-3 pr-10 rounded-full focus:outline-0" type="text" placeholder="Search.."
+                  name="search">
+              <button class="-ml-8 border-6 bg-trasparent" type="submit"><i
+                      class="fa fa-search text-gray-400"></i></button>
+          </form>
+          <div>
+            <img class="h-10 w-10 rounded-full" src="{person.imageUrl}" alt="" />
+          </div>
+      </div>
+
+      <!-- The hamburger icon to open/close the #main-nav when screen width < 768px (mobile devices) -->
+      <a class="md:hidden text-white text-2xl" href="javascript:void(0)" onclick="toggleMenu()"><i
+              id="toggle-menu-icon" class="fa-bars fa-solid"></i></a>
+
+  </nav>
+
+  </header>
+  <div class="relative w-full h-screen bg-blend-multiply">
+      <div
+          class="w-full h-full bg-cover blur-md">
+          <img src="static/images/sky.jpg/"/>
+
+          
+      </div>
+      
+      <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center backdrop-blur-lg">
+          {% block content %}
+          {% endblock content %}
+      </div>
+  </div>
+  <script>
+        var mainNav = document.getElementById("main-nav");
+        var toggleMenuIcon = document.getElementById("toggle-menu-icon");
+
+        function toggleMenu() {
+            mainNav.classList.toggle('hidden');
+
+            // change the icon when the menu is shown/closed
+            toggleMenuIcon.classList.toggle('fa-bars');
+            toggleMenuIcon.classList.toggle('fa-times');
+        }
+    </script>
+
+</body>
+
 </html>
+{% comment %}
+https://unsplash.com/photos/sbcIAn4Mn14
+https://unsplash.com/photos/OQfuugXSfH0  
+{% endcomment %}
