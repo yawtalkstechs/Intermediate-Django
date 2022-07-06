@@ -13,7 +13,7 @@
         Hi {{ user.username }}
         <div class="container mx-auto text-red-400 hover:text-red-700">
             <p>
-                <a href="{% url 'logout' %}">Log Out</a>
+                <a href="{% url 'account_logout' %}">Log Out</a>
             </p>
         </div>
     {% else %}
@@ -22,13 +22,13 @@
     </div>
         <div class="md:container md:mx-auto text-xl">
         <div class="text-sky-500 hover:text-sky-700">
-            <a href="{% url 'login' %}">Log In</a>
+            <a href="{% url 'account_login' %}">Log In</a>
         </div>
 
         <div class="text-green-500 hover:text-green-700 py-2">
-            <a href="{% url 'signup' %}">Sign Up</a>
+            <a href="{% url 'account_signup' %}">Sign Up</a>
         </div>
     </div>
-    {% endif %}
+    {% endif %} 
     </div>
 {% endblock content%}

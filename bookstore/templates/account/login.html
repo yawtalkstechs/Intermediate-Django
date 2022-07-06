@@ -5,6 +5,7 @@
 {% load tailwind_tags %}
 {% load tailwind_filters %}
 
+{% load socialaccount %}
 
 {% block title %}Log In{% endblock title %}
 
@@ -19,6 +20,7 @@
             {{ form|crispy }}
             <button type="submit" class="btn btn-green">Log In</button>
         </div>
+
     </form>
 
 {% endblock content %}

@@ -16,13 +16,16 @@
     }
 
     .btn-red{
-        @apply py-3 px-7 bg-red-500 text-black font-semibold hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75;
+        @apply py-3 px-7 bg-red-500 text-gray-400 font-semibold hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75;
     }
 }
 
 @layer base {
     .h1 {
         @apply text-3xl text-center mx-auto my-auto text-lime-500;
+    }
+    .h1-red {
+        @apply text-3xl text-center mx-auto my-auto text-red-500;
     }
 
     .h2 {

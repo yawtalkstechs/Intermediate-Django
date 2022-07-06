@@ -1,0 +1,6 @@
+*.pot
+*.pyc
+*.log
+__pycache__/
+*.vscode
+db.sqlite3-journal
